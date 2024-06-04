@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71741658372",
+    "project_id": "rastreadog-40db4",
+    "storage_bucket": "rastreadog-40db4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71741658372:android:778cc775a7d3eeffb56c51",
+        "android_client_info": {
+          "package_name": "com.joseantoniofernandezverdugo.rastreadog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEJRzsoRBXh5a1pQ0LIsYE9lACkZlwkjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
