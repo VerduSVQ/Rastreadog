@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/maingrapph"
+    app:startDestination="@id/inicioSesion">
+
+    <fragment
+        android:id="@+id/inicioSesion"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.InicioSesion"
+        android:label="fragment_inicio_sesion"
+        tools:layout="@layout/fragment_inicio_sesion" >
+        <action
+            android:id="@+id/action_inicioSesion_to_registro"
+            app:destination="@id/navigation3" />
+        <action
+            android:id="@+id/action_inicioSesion_to_selector"
+            app:destination="@id/selector" />
+    </fragment>
+    <activity
+        android:id="@+id/authActivity"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.AuthActivity"
+        android:label="activity_auth"
+        tools:layout="@layout/activity_auth" />
+    <fragment
+        android:id="@+id/selector"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.selector"
+        android:label="selector"
+        tools:layout="@layout/fragment_selector" >
+        <action
+            android:id="@+id/action_selector_to_comprar"
+            app:destination="@id/comprar" />
+        <action
+            android:id="@+id/action_selector_to_vender"
+            app:destination="@id/vender" />
+    </fragment>
+    <navigation android:id="@+id/navigation3"
+        app:startDestination="@id/navigation2">
+        <navigation
+            android:id="@+id/navigation2"
+            app:startDestination="@id/registro">
+            <fragment
+                android:id="@+id/registro"
+                android:name="com.joseantoniofernandezverdugo.rastreadog.registro"
+                android:label="fragment_registro"
+                tools:layout="@layout/fragment_registro" />
+        </navigation>
+    </navigation>
+    <fragment
+        android:id="@+id/comprar"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.comprar"
+        android:label="fragment_comprar"
+        tools:layout="@layout/fragment_comprar" >
+        <action
+            android:id="@+id/action_comprar_to_comprarPerro"
+            app:destination="@id/comprarPerro" />
+    </fragment>
+    <fragment
+        android:id="@+id/vender"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.Vender"
+        android:label="fragment_vender"
+        tools:layout="@layout/fragment_vender" >
+        <action
+            android:id="@+id/action_vender_to_eliminarPerro"
+            app:destination="@id/eliminarPerro" />
+        <action
+            android:id="@+id/action_vender_to_registrarPerro"
+            app:destination="@id/registrarPerro" />
+    </fragment>
+    <fragment
+        android:id="@+id/comprarPerro"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.ComprarPerro"
+        android:label="fragment_comprar_perro"
+        tools:layout="@layout/fragment_comprar_perro" />
+    <fragment
+        android:id="@+id/eliminarPerro"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.EliminarPerro"
+        android:label="fragment_eliminar_perro"
+        tools:layout="@layout/fragment_eliminar_perro" />
+    <fragment
+        android:id="@+id/registrarPerro"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.RegistrarPerro"
+        android:label="fragment_registrar_perro"
+        tools:layout="@layout/fragment_registrar_perro" />
+</navigation>
