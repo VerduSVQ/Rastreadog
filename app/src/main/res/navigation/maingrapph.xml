@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_inicio_sesion" >
         <action
             android:id="@+id/action_inicioSesion_to_registro"
-            app:destination="@id/navigation3" />
+            app:destination="@id/registro" />
         <action
             android:id="@+id/action_inicioSesion_to_selector"
             app:destination="@id/selector" />
@@ -24,7 +24,7 @@
         tools:layout="@layout/activity_auth" />
     <fragment
         android:id="@+id/selector"
-        android:name="com.joseantoniofernandezverdugo.rastreadog.selector"
+        android:name="com.joseantoniofernandezverdugo.rastreadog.Selector"
         android:label="selector"
         tools:layout="@layout/fragment_selector" >
         <action
@@ -34,18 +34,17 @@
             android:id="@+id/action_selector_to_vender"
             app:destination="@id/vender" />
     </fragment>
-    <navigation android:id="@+id/navigation3"
-        app:startDestination="@id/navigation2">
-        <navigation
-            android:id="@+id/navigation2"
-            app:startDestination="@id/registro">
+
             <fragment
                 android:id="@+id/registro"
-                android:name="com.joseantoniofernandezverdugo.rastreadog.registro"
+                android:name="com.joseantoniofernandezverdugo.rastreadog.Registro"
                 android:label="fragment_registro"
-                tools:layout="@layout/fragment_registro" />
-        </navigation>
-    </navigation>
+                tools:layout="@layout/fragment_registro" >
+                <action
+                    android:id="@+id/action_registro_to_inicioSesion"
+                    app:destination="@id/inicioSesion" />
+            </fragment>
+
     <fragment
         android:id="@+id/comprar"
         android:name="com.joseantoniofernandezverdugo.rastreadog.comprar"
