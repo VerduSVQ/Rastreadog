@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "71741658372-ralilpeeaj333n78vgsu634oqo4loaoa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joseantoniofernandezverdugo.rastreadog",
+            "certificate_hash": "ac5c536b704752065de05f36d6fe326523405943"
+          }
+        },
+        {
           "client_id": "71741658372-54j9kb83qsl3kqmtjfno56ddu7g7s0oj.apps.googleusercontent.com",
           "client_type": 3
         }
