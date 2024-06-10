@@ -48,7 +48,7 @@ class Registro : Fragment() {
 
 
             if (email.isEmpty() || password.isEmpty() || password2.isEmpty() || nombre.isEmpty() || phone.isEmpty()) {
-                Toast.makeText(requireContext(), "Email y contraseña son obligatorios", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "No puede  haber campos vacios", Toast.LENGTH_SHORT).show()
             } else {
                 if (password != password2) {
                     Toast.makeText(requireContext(), "Las contraseñas deben coincidir", Toast.LENGTH_SHORT).show()
