@@ -15,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentInicioSesionBinding
 
 class InicioSesion : Fragment() {
@@ -23,6 +24,7 @@ class InicioSesion : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val db = FirebaseFirestore.getInstance()
 
     private companion object {
         private const val RC_SIGN_IN = 9001
@@ -89,12 +91,40 @@ class InicioSesion : Fragment() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    user?.let {
+                        val email = it.email
+                        val name = it.displayName
+                        val phoneNumber = it.phoneNumber // Puede ser nulo
+
+                        // Guardar los datos en Firestore
+                        saveUserToFirestore(email, name, phoneNumber)
+                    }
                     Toast.makeText(requireContext(), "Authentication Successful.", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_inicioSesion_to_selector)
                 } else {
                     Toast.makeText(requireContext(), "Authentication Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun saveUserToFirestore(email: String?, name: String?, phoneNumber: String?) {
+        if (email != null) {
+            val user = hashMapOf(
+                "email" to email,
+                "nombre" to name,
+                "telefono" to phoneNumber
+            )
+
+            db.collection("usuarios").document(email).set(user)
+                .addOnSuccessListener {
+                    // Documento añadido exitosamente
+                }
+                .addOnFailureListener { e ->
+                    // Error al añadir el documento
+                    Toast.makeText(requireContext(), "Error saving user: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        }
     }
 
     private fun setup() {
@@ -122,4 +152,3 @@ class InicioSesion : Fragment() {
         }
     }
 }
-

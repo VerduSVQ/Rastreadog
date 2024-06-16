@@ -1,4 +1,4 @@
-package com.joseantoniofernandezverdugo.rastreadog.model
+package com.joseantoniofernandezverdugo.rastreadog.modelo
 
 data class Usuario(
     val nombre:String,

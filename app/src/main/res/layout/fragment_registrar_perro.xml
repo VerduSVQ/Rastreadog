@@ -5,10 +5,72 @@
     android:layout_height="match_parent"
     tools:context=".RegistrarPerro">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <EditText
+            android:id="@+id/etRaza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Raza" />
+
+        <EditText
+            android:id="@+id/etColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Color" />
+
+        <EditText
+            android:id="@+id/etRazaPadre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Raza del Padre" />
+
+        <EditText
+            android:id="@+id/etColorPadre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Color del Padre" />
+
+        <EditText
+            android:id="@+id/etRazaMadre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Raza de la Madre" />
+
+        <EditText
+            android:id="@+id/etColorMadre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Color de la Madre" />
+
+        <EditText
+            android:id="@+id/etEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Edad" />
+
+        <EditText
+            android:id="@+id/etPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/etCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ciudad" />
+
+        <Button
+            android:id="@+id/btnRegistrarPerro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar Perro" />
+
+    </LinearLayout>
 </FrameLayout>

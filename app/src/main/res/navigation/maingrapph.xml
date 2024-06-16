@@ -70,15 +70,31 @@
         android:id="@+id/comprarPerro"
         android:name="com.joseantoniofernandezverdugo.rastreadog.ComprarPerro"
         android:label="fragment_comprar_perro"
-        tools:layout="@layout/fragment_comprar_perro" />
+        tools:layout="@layout/fragment_comprar_perro">
+    <argument
+        android:name="idPerro"
+        app:argType="string" />
+    </fragment>
+
     <fragment
         android:id="@+id/eliminarPerro"
         android:name="com.joseantoniofernandezverdugo.rastreadog.EliminarPerro"
         android:label="fragment_eliminar_perro"
-        tools:layout="@layout/fragment_eliminar_perro" />
+        tools:layout="@layout/fragment_eliminar_perro">
+    <argument
+        android:name="idPerroVenta"
+        app:argType="string" />
+        <action
+            android:id="@+id/action_eliminarPerro_to_vender"
+            app:destination="@id/vender" />
+    </fragment>
     <fragment
         android:id="@+id/registrarPerro"
         android:name="com.joseantoniofernandezverdugo.rastreadog.RegistrarPerro"
         android:label="fragment_registrar_perro"
-        tools:layout="@layout/fragment_registrar_perro" />
+        tools:layout="@layout/fragment_registrar_perro" >
+        <action
+            android:id="@+id/action_registrarPerro_to_vender"
+            app:destination="@id/vender" />
+    </fragment>
 </navigation>
