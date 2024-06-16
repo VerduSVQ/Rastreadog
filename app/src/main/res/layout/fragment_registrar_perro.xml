@@ -72,5 +72,12 @@
             android:layout_height="wrap_content"
             android:text="Registrar Perro" />
 
+        <ImageView
+            android:id="@+id/ivSeleccionarImagen"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:text="Seleccionar imagen" />
+
+
     </LinearLayout>
 </FrameLayout>

@@ -46,7 +46,7 @@ class comprar : Fragment() {
                         colorMadre = data["colorMadre"] as String,
                         edad = data["edad"] as String,
                         precio = data["precio"] as Long,
-                        ciudad = data["ciudad"] as String // Asegúrate de que este campo es un String en Firestore
+                        ciudad = data["ciudad"] as String
                     )
                 }
                 adapter = PerroAdapter(perroList) { perro ->

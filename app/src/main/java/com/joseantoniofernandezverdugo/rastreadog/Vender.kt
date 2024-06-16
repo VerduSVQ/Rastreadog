@@ -48,7 +48,7 @@ class Vender : Fragment() {
                     val perroList = perrosMap.map { (id, data) ->
                         val perroData = data as Map<String, Any?>
                         Perro(
-                            uid = id,
+                            uid = perroData["uid"] as String,
                             raza = perroData["raza"] as String,
                             color = perroData["color"] as String,
                             razaPadre = perroData["razaPadre"] as String,

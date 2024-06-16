@@ -13,7 +13,7 @@ data class Perro(
     val colorMadre: String,
     val edad: String,
     val precio: Long,
-    val ciudad: String
+    val ciudad: String,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
