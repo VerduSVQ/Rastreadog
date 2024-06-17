@@ -12,9 +12,7 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentComprarPerroBinding
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentEliminarPerroBinding
-import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentRegistrarPerroBinding
 import kotlinx.coroutines.launch
 
 class EliminarPerro : Fragment() {
@@ -22,7 +20,6 @@ class EliminarPerro : Fragment() {
     private var _binding: FragmentEliminarPerroBinding? = null
     private val binding get() = _binding!!
     val args: EliminarPerroArgs by navArgs()
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,10 +38,7 @@ class EliminarPerro : Fragment() {
             findNavController().navigate(R.id.action_eliminarPerro_to_vender)
 
         }
-        binding.btnCerrarSesion.setOnClickListener {
-            auth.signOut()
-            findNavController().navigate(R.id.action_eliminarPerro_to_inicioSesion)
-        }
+
         binding.backArrow.setOnClickListener {
 
             findNavController().navigate(R.id.action_eliminarPerro_to_vender)

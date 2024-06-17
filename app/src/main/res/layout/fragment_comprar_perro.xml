@@ -44,17 +44,6 @@
                 android:layout_gravity="center_vertical"
                 android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/btnCerrarSesion"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@drawable/style_logout"
-                android:fontFamily="@font/interregular"
-                android:text="Cerrar Sesion"
-                android:textColor="@color/btnBorder"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="20dp"/>
-
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -79,8 +68,11 @@
 
         <TextView
             android:id="@+id/nombre"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/interbold"
+            android:textSize="30dp"
+            android:layout_gravity="center_horizontal"
             android:hint="Raza" />
 
         <Space

@@ -1,5 +1,7 @@
 package com.joseantoniofernandezverdugo.rastreadog
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +22,6 @@ class ComprarPerro : Fragment() {
     private var _binding: FragmentComprarPerroBinding? = null
     private val binding get() = _binding!!
     val args: ComprarPerroArgs by navArgs()
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,14 +34,14 @@ class ComprarPerro : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val perroId = args.idPerro
-        binding.btnCerrarSesion.setOnClickListener {
-            auth.signOut()
-            findNavController().navigate(R.id.action_comprarPerro_to_inicioSesion)
-        }
+         var perroDueño : String = ""
+        var perroNombre : String = ""
+
         binding.backArrow.setOnClickListener {
 
             findNavController().navigate(R.id.action_comprarPerro_to_comprar)
         }
+
 
         viewLifecycleOwner.lifecycleScope.launch {
             if (perroId.isNotEmpty()) {
@@ -58,6 +59,9 @@ class ComprarPerro : Fragment() {
                             binding.tvPrecio.text = document.getLong("precio").toString()
                             binding.tvCiudad.text = document.getString("ciudad")
 
+                            perroDueño = document.getString("email").toString()
+                            perroNombre = document.getString("raza").toString()
+
                             // Obtener la referencia de la imagen en Firebase Storage
                             val storageRef = FirebaseStorage.getInstance().reference.child("images/$perroId")
 
@@ -70,6 +74,25 @@ class ComprarPerro : Fragment() {
                     }
             }
         }
+        binding.btnComprar.setOnClickListener {
+            sendEmail(perroDueño,perroNombre)
+        }
+    }
+
+
+    private fun sendEmail(perroDueño : String,perroNombre : String) {
+        val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:") // Solo las apps de correo electrónico deberían manejar esto
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("$perroDueño"))
+            putExtra(Intent.EXTRA_SUBJECT, "Oferta")
+            putExtra(Intent.EXTRA_TEXT, "Buenas,estoy interessado en su $perroNombre")
+        }
+
+        if (emailIntent.resolveActivity(requireActivity().packageManager) != null) {
+            startActivity(emailIntent)
+        } else {
+            // Muestra un mensaje o haz algo si no hay ninguna app de correo instalada
+        }
     }
 
     override fun onDestroyView() {
@@ -77,3 +100,4 @@ class ComprarPerro : Fragment() {
         _binding = null
     }
 }
+

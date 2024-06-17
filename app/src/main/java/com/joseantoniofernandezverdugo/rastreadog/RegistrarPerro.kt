@@ -9,8 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -66,10 +64,7 @@ class RegistrarPerro : Fragment() {
         binding.btnRegistrarPerro.setOnClickListener {
             registrarPerro()
         }
-        binding.btnCerrarSesion.setOnClickListener {
-            auth.signOut()
-            findNavController().navigate(R.id.action_registrarPerro_to_inicioSesion)
-        }
+
         binding.backArrow.setOnClickListener {
 
             findNavController().navigate(R.id.action_registrarPerro_to_vender)

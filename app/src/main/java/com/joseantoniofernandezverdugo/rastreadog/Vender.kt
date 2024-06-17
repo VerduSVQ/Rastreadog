@@ -39,6 +39,14 @@ class Vender : Fragment() {
         binding.btnRegistroPerro.setOnClickListener {
             findNavController().navigate(R.id.action_vender_to_registrarPerro)
         }
+        binding.btnCerrarSesion.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_vender_to_inicioSesion)
+        }
+        binding.backArrow.setOnClickListener {
+
+            findNavController().navigate(R.id.action_vender_to_selector)
+        }
 
         val email = auth.currentUser?.email
 
