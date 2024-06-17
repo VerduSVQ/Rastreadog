@@ -74,5 +74,10 @@ class Registro : Fragment() {
                 }
             }
         }
+        binding.backArrow.setOnClickListener {
+            findNavController().navigate(R.id.action_registro_to_inicioSesion)
+        }
+
+        }
     }
 }

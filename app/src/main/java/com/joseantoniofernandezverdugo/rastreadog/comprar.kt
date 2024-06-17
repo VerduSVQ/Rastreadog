@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.joseantoniofernandezverdugo.rastreadog.adapter.PerroAdapter
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentComprarBinding
 import com.joseantoniofernandezverdugo.rastreadog.modelo.Perro
@@ -18,6 +19,7 @@ class comprar : Fragment() {
     private lateinit var adapter: PerroAdapter
     private var _binding: FragmentComprarBinding? = null
     private val binding get() = _binding!!
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +31,14 @@ class comprar : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnCerrarSesion.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_comprar_to_inicioSesion)
+        }
+        binding.backArrow.setOnClickListener {
+
+            findNavController().navigate(R.id.action_comprar_to_selector)
+        }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
 

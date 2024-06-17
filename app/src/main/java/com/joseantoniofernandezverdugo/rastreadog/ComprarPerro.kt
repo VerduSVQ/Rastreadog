@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentComprarPerroBinding
@@ -18,6 +20,7 @@ class ComprarPerro : Fragment() {
     private var _binding: FragmentComprarPerroBinding? = null
     private val binding get() = _binding!!
     val args: ComprarPerroArgs by navArgs()
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +33,14 @@ class ComprarPerro : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val perroId = args.idPerro
+        binding.btnCerrarSesion.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_comprarPerro_to_inicioSesion)
+        }
+        binding.backArrow.setOnClickListener {
+
+            findNavController().navigate(R.id.action_comprarPerro_to_comprar)
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             if (perroId.isNotEmpty()) {

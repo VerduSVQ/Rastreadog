@@ -66,6 +66,14 @@ class RegistrarPerro : Fragment() {
         binding.btnRegistrarPerro.setOnClickListener {
             registrarPerro()
         }
+        binding.btnCerrarSesion.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_registrarPerro_to_inicioSesion)
+        }
+        binding.backArrow.setOnClickListener {
+
+            findNavController().navigate(R.id.action_registrarPerro_to_vender)
+        }
     }
 
     private fun subirImagen(filename :String){
