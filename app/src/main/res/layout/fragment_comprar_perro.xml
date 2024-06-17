@@ -52,7 +52,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/white"
-        android:layout_margin="16dp"
+
         android:padding="16dp">
 
         <ImageView
