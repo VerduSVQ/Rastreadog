@@ -34,26 +34,27 @@
             app:layout_constraintTop_toBottomOf="@+id/ivInicioSesion"
             tools:text="Inicio De Sesion" />
 
+
         <TextView
             android:id="@+id/txtvEmail"
-            android:textSize="25sp"
-            android:fontFamily="@font/interregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/btnBorder"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/interregular"
             android:text="Email"
+            android:textColor="@color/btnBorder"
+            android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvInicioSes" />
-
-
 
         <EditText
             android:id="@+id/idEmailText"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:textColor="@color/btnBorder"
+            android:fontFamily="@font/interregular"
             app:layout_constraintStart_toStartOf="@+id/txtvEmail"
             app:layout_constraintTop_toBottomOf="@+id/txtvEmail"
             android:ems="10"
@@ -78,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:hint="Contraseña"
+            android:fontFamily="@font/interregular"
             android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="@+id/txtVContraseña"
             app:layout_constraintTop_toBottomOf="@+id/txtVContraseña" />

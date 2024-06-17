@@ -3,7 +3,16 @@
     <style name="Base.Theme.Rastreadog" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
-    <style name="Theme.Rastreadog" parent="Base.Theme.Rastreadog" />
+    <style name="AppTheme" parent="Base.Theme.Rastreadog">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/btnFill</item>
+        <item name="colorPrimaryDark">@color/btnFill</item>
+        <item name="colorAccent">@color/btnFill</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
 </resources>

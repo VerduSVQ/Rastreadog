@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrarPerro"
+    android:orientation="vertical"
     android:background="@color/back">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/btnBorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/marca"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backArrow"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/baseline_keyboard_arrow_left_24" />
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/interbold"
+                android:hint="Registrar perro"
+                android:textColor="@color/btnFill"
+                android:layout_gravity="center"
+                android:textSize="19dp" />
+
+            <Button
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/style_logout"
+                android:fontFamily="@font/interregular"
+                android:text="Cerrar Sesion"
+                android:textColor="@color/btnBorder"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,11 +62,30 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/ivSeleccionarImagen"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:text="Seleccionar imagen" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivSeleccionarImagen"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/baseline_add_photo_"
+
+                android:text="Seleccionar imagen" />
+
+            <TextView
+                android:id="@+id/hintFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="70dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/btnBorder"
+                android:fontFamily="@font/interregular"
+                android:textSize="18dp"
+                android:text="Seleccione una imagen" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/etRaza"
@@ -82,7 +151,5 @@
             android:text="Registrar Perro" />
 
 
-
-
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

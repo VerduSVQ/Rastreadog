@@ -8,9 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentComprarPerroBinding
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentEliminarPerroBinding
+import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentRegistrarPerroBinding
 import kotlinx.coroutines.launch
 
 class EliminarPerro : Fragment() {
@@ -43,7 +46,7 @@ class EliminarPerro : Fragment() {
                 db.collection("perros").document(perroIdVenta).get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
-                            binding.tvRaza.text = document.getString("raza")
+                            binding.nombre.text = document.getString("raza")
                             binding.tvColor.text = document.getString("color")
                             binding.tvRazaPadre.text = document.getString("razaPadre")
                             binding.tvColorPadre.text = document.getString("colorPadre")
@@ -54,6 +57,14 @@ class EliminarPerro : Fragment() {
                             binding.tvCiudad.text = document.getString("ciudad")
                         }
                     }
+            }
+            val storageRef = FirebaseStorage.getInstance().reference.child("images/${perroIdVenta}")
+
+            // Obtener la URL de descarga y cargar la imagen con Glide
+            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                Glide.with(view.context).load(uri).into(binding.ivImagen)
+            }.addOnFailureListener {
+
             }
         }
     }

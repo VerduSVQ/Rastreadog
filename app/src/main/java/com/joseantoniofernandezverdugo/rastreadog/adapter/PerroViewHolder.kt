@@ -10,7 +10,7 @@ import com.joseantoniofernandezverdugo.rastreadog.R
 import com.joseantoniofernandezverdugo.rastreadog.modelo.Perro
 
 class PerroViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val razaTextView: TextView = itemView.findViewById(R.id.tvRaza)
+    val razaTextView: TextView = itemView.findViewById(R.id.nombre)
     val colorTextView: TextView = itemView.findViewById(R.id.tvColor)
     val purezaTextView: TextView = itemView.findViewById(R.id.tvPureza)
     val ciudadTextView: TextView = itemView.findViewById(R.id.tvCiudad)

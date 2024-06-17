@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.joseantoniofernandezverdugo.rastreadog.databinding.FragmentComprarPerroBinding
 import kotlinx.coroutines.launch
 
@@ -35,7 +37,7 @@ class ComprarPerro : Fragment() {
                 db.collection("perros").document(perroId).get()
                     .addOnSuccessListener { document ->
                         if (document != null) {
-                            binding.tvRaza.text = document.getString("raza")
+                            binding.nombre.text = document.getString("raza")
                             binding.tvColor.text = document.getString("color")
                             binding.tvRazaPadre.text = document.getString("razaPadre")
                             binding.tvColorPadre.text = document.getString("colorPadre")
@@ -44,6 +46,15 @@ class ComprarPerro : Fragment() {
                             binding.tvEdad.text = document.getString("edad")
                             binding.tvPrecio.text = document.getLong("precio").toString()
                             binding.tvCiudad.text = document.getString("ciudad")
+
+                            // Obtener la referencia de la imagen en Firebase Storage
+                            val storageRef = FirebaseStorage.getInstance().reference.child("images/$perroId")
+
+                            // Obtener la URL de descarga y cargar la imagen con Glide
+                            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                                Glide.with(requireContext()).load(uri).into(binding.ivImagen)
+                            }.addOnFailureListener {
+                            }
                         }
                     }
             }

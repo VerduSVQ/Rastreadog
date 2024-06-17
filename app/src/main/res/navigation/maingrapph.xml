@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_selector_to_vender"
             app:destination="@id/vender" />
+        <action
+            android:id="@+id/action_selector_to_inicioSesion"
+            app:destination="@id/inicioSesion" />
     </fragment>
 
             <fragment
@@ -53,6 +56,9 @@
         <action
             android:id="@+id/action_comprar_to_comprarPerro"
             app:destination="@id/comprarPerro" />
+        <action
+            android:id="@+id/action_comprar_to_inicioSesion"
+            app:destination="@id/inicioSesion" />
     </fragment>
     <fragment
         android:id="@+id/vender"
@@ -65,6 +71,9 @@
         <action
             android:id="@+id/action_vender_to_registrarPerro"
             app:destination="@id/registrarPerro" />
+        <action
+            android:id="@+id/action_vender_to_inicioSesion"
+            app:destination="@id/inicioSesion" />
     </fragment>
     <fragment
         android:id="@+id/comprarPerro"
@@ -74,6 +83,9 @@
     <argument
         android:name="idPerro"
         app:argType="string" />
+        <action
+            android:id="@+id/action_comprarPerro_to_inicioSesion"
+            app:destination="@id/inicioSesion" />
     </fragment>
 
     <fragment
@@ -96,5 +108,8 @@
         <action
             android:id="@+id/action_registrarPerro_to_vender"
             app:destination="@id/vender" />
+        <action
+            android:id="@+id/action_registrarPerro_to_inicioSesion"
+            app:destination="@id/inicioSesion" />
     </fragment>
 </navigation>
