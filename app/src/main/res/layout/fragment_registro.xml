@@ -3,51 +3,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/back"
     tools:context=".Registro">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/regTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Regístrate"
+            android:textColor="@color/btnBorder"
+            android:textSize="36dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <EditText
             android:id="@+id/tvEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:layout_height="45dp"
+            android:layout_marginVertical="42dp"
+            android:hint="Email"
+            app:layout_constraintBottom_toTopOf="@+id/tvNombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <EditText
             android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre" />
+            android:layout_marginVertical="42dp"
+            android:hint="Nombre"
+            app:layout_constraintStart_toStartOf="@+id/tvEmail"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+            tools:layout_editor_absoluteY="45dp" />
 
         <EditText
             android:id="@+id/tvClave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña" />
+            android:layout_marginVertical="42dp"
+            android:hint="Contraseña"
+            app:layout_constraintStart_toStartOf="@+id/tvNombre"
+
+            app:layout_constraintTop_toBottomOf="@+id/tvNombre"
+            tools:layout_editor_absoluteY="90dp" />
 
         <EditText
             android:id="@+id/tvClave2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Repetir Contraseña" />
+            android:layout_marginVertical="42dp"
+            android:hint="Repetir Contraseña"
+            app:layout_constraintStart_toStartOf="@+id/tvClave"
+            app:layout_constraintTop_toBottomOf="@+id/tvClave"
+            tools:layout_editor_absoluteY="135dp" />
 
         <EditText
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="42dp"
             android:ems="10"
             android:hint="Telefono"
-            android:inputType="phone" />
+            android:inputType="phone"
+            app:layout_constraintStart_toStartOf="@+id/tvClave2"
+            app:layout_constraintTop_toBottomOf="@+id/tvClave2"
+            tools:layout_editor_absoluteY="180dp" />
 
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse" />
+            android:layout_marginVertical="42dp"
+            android:text="Registrarse"
+            app:layout_constraintStart_toStartOf="@+id/etPhone"
+            app:layout_constraintTop_toBottomOf="@+id/etPhone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
 </FrameLayout>

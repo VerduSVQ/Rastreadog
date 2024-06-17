@@ -18,7 +18,8 @@
             android:layout_height="300dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/imginiciosesion"></ImageView>
+            app:srcCompat="@mipmap/imginiciosesion"
+            android:contentDescription="Foto principal"></ImageView>
 
         <TextView
             android:id="@+id/tvInicioSes"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/btnBorder"
             android:textSize="35sp"
+            android:fontFamily="@font/interbold"
             android:text="Inicio de Sesión"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,10 +36,12 @@
 
         <TextView
             android:id="@+id/txtvEmail"
+            android:textSize="25sp"
+            android:fontFamily="@font/interregular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="30dp"
             android:textColor="@color/btnBorder"
             android:text="Email"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,8 +63,10 @@
         <TextView
             android:id="@+id/txtVContraseña"
             android:layout_width="wrap_content"
+            android:textSize="25sp"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
+            android:fontFamily="@font/interregular"
             android:textColor="@color/btnBorder"
             android:text="Contraseña"
             app:layout_constraintStart_toStartOf="@+id/txtvEmail"
@@ -81,7 +87,8 @@
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:textColor="@color/btnBorder"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/interbold"
             android:background="@drawable/style_button"
             app:layout_constraintTop_toBottomOf="@+id/idPasswordText"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,20 +97,25 @@
 
         <Button
             android:id="@+id/btnGoogle"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/btnBorder"
             android:layout_marginTop="6dp"
+            app:icon="@drawable/googleg_disabled_color_18"
             android:background="@drawable/style_button"
-            app:layout_constraintStart_toStartOf="@+id/loginButton"
+            android:fontFamily="@font/interbold"
+            android:text="Google"
+            android:textColor="@color/btnBorder"
             app:layout_constraintEnd_toEndOf="@+id/loginButton"
-            app:layout_constraintTop_toBottomOf="@+id/loginButton"
-            android:text="Google" />
+            app:layout_constraintStart_toStartOf="@+id/loginButton"
+            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
         <Button
             android:id="@+id/signUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/clear_button"
+            android:textColor="@color/btnBorder"
+            android:fontFamily="@font/interbold"
             android:text="No tienes cuenta? Registrate"
             app:layout_constraintTop_toBottomOf="@+id/btnGoogle"
             app:layout_constraintStart_toStartOf="parent"
